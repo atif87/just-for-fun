@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration
 			t.string :gender
 			t.string :hometown
   end
-
+	end
   def down
   end
 end

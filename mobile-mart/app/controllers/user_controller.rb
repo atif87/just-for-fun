@@ -13,12 +13,13 @@ class UserController < ApplicationController
 		fields = ["id", "username", "name", "gender", "hometown", "location", "bio"]
 		response = {}
 		fields.each { |f| response[f] = data[f]}
-		#user = User.new(response.symbolize_keys)
-		#if user.valid?
-		#	user.save!
-		#else
-		#	raise "Error".inspect
-		#end
+		u = User.new
+		fields.each { |f| u[f.to_sym] = data[f]}
+		if u.save!
+			puts "saved"
+		else
+			puts "some problem in savin"
+		end
 		render :json => response and return
 	end
   end
